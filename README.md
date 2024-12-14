@@ -65,7 +65,6 @@ python src/main.py
 - Les tables de consolidation sont transformées en tables dimensionnelles (`DIM_CITY`, `DIM_STATION`) et en une table de faits (`FACT_STATION_STATEMENT`).
 
 ## Structure du projet
-## Structure du projet
 Le projet est organisé de la manière suivante :
 - **data/** : Contient les fichiers liés aux données, y compris les données brutes et la base DuckDB.
   - `raw_data/` : Fichiers JSON ingérés.
