@@ -65,6 +65,7 @@ python src/main.py
 - Les tables de consolidation sont transformées en tables dimensionnelles (`DIM_CITY`, `DIM_STATION`) et en une table de faits (`FACT_STATION_STATEMENT`).
 
 ## Structure du projet
+
 Le projet est organisé de la manière suivante :
 - **data/** : Contient les fichiers liés aux données, y compris les données brutes et la base DuckDB.
   - `raw_data/` : Fichiers JSON ingérés.
@@ -79,7 +80,8 @@ Le projet est organisé de la manière suivante :
 - **README.md** : Documentation du projet.
 - **LICENSE** : Licence du projet.
 
-Résultats attendus
+## Résultats attendus
+
 Voici les deux exemples de requêtes SQL que vous pouvez exécuter après l'agrégation des données :
 1. **Nombre d'emplacements disponibles dans une ville** :
 ```sql
