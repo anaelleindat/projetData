@@ -59,7 +59,7 @@ python src/main.py
 
 2. **Consolidation des données** :
 - Les données ingérées sont transformées et chargées dans des tables DuckDB (`CONSOLIDATE_STATION`, `CONSOLIDATE_STATION_STATEMENT`).
-- L'API des communes françaises est utilisée pour enrichir les données des villes dans la table CONSOLIDATE_CITY.
+- L'API des communes françaises est utilisée pour enrichir les données des villes dans la table `CONSOLIDATE_CITY`.
 
 3. **Agrégation des données** :
 - Les tables de consolidation sont transformées en tables dimensionnelles (`DIM_CITY`, `DIM_STATION`) et en une table de faits (`FACT_STATION_STATEMENT`).
