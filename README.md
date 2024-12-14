@@ -65,41 +65,20 @@ python src/main.py
 - Les tables de consolidation sont transformées en tables dimensionnelles (`DIM_CITY`, `DIM_STATION`) et en une table de faits (`FACT_STATION_STATEMENT`).
 
 ## Structure du projet
-projetData/
-
-│
-
-├── data/                             # Données locales
-
-│   ├── raw_data/                     # Fichiers JSON ingérés
-
-│   └── duckdb/                       # Base de données DuckDB
-
-│   └── sql_statements/                # Requêtes SQL pour créer les tables
-
-│       ├── create_consolidate_tables.sql
-
-│       └── create_agregate_tables.sql
-
-│
-
-├── src/                              # Code source
-
-│   ├── data_ingestion.py             # Étape d'ingestion des données
-
-│   ├── data_consolidation.py         # Étape de consolidation des données
-
-│   ├── data_agregation.py            # Étape d'agrégation des données
-
-│   └── main.py                       # Fichier principal pour exécuter le pipeline
-
-│
-
-├── requirements.txt                  # Dépendances Python
-
-├── README.md                         # Documentation
-
-└── LICENSE                           # Licence du projet
+## Structure du projet
+Le projet est organisé de la manière suivante :
+- **data/** : Contient les fichiers liés aux données, y compris les données brutes et la base DuckDB.
+  - `raw_data/` : Fichiers JSON ingérés.
+  - `duckdb/` : Base de données DuckDB.
+  - `sql_statements/` : Requêtes SQL pour créer les tables.
+- **src/** : Contient les scripts Python pour les différentes étapes du pipeline ETL.
+  - `data_ingestion.py` : Étape d'ingestion des données.
+  - `data_consolidation.py` : Étape de consolidation des données.
+  - `data_agregation.py` : Étape d'agrégation des données.
+  - `main.py` : Script principal pour exécuter le pipeline.
+- **requirements.txt** : Dépendances Python.
+- **README.md** : Documentation du projet.
+- **LICENSE** : Licence du projet.
 
 Résultats attendus
 Voici les deux exemples de requêtes SQL que vous pouvez exécuter après l'agrégation des données :
@@ -126,6 +105,23 @@ FROM DIM_STATION ds JOIN (
     GROUP BY station_id
 ) AS tmp ON ds.id = tmp.station_id;
 ```
+
+Avant de tester les requêtes SQL fournies, vous devez vous connecter à la base de données DuckDB. Voici comment faire :
+
+Placez-vous dans le dossier principal du projet, par exemple :
+
+```bash
+cd projetData
+```
+
+Lancez DuckDB avec la commande suivante :
+
+```
+./duckdb data/duckdb/mobility_analysis.duckdb
+```
+
+Vous pouvez ensuite exécuter les requêtes SQL directement dans l'interface DuckDB.
+
 
 ## Licence
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'informations.
